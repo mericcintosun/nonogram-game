@@ -34,7 +34,7 @@
 			</svg>
 		</a>
 
-		<a class="icon github" href="https://github.com/monkeyArms/nonogram" target="_blank" rel="noopener"
+		<a class="icon github" href="https://github.com/mericcintosun/nonogram-game" target="_blank" rel="noopener"
 		   title="View on Github">
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="34px" height="33.162px"
 				 viewBox="0 0 34 33.162" enable-background="new 0 0 34 33.162"
@@ -50,6 +50,9 @@
 	c0,0.429,0.29,0.925,1.103,0.77C28.42,30.038,33,24.043,33,16.977C33,8.139,25.836,0.975,16.999,0.975z"></path>
 			</svg>
 		</a>
+
+		<button style="margin-left:20px ;" id="theme-toggle" title="Tema Değiştir">Change Theme</button>
+
 	</header>
 
 	<main>
@@ -87,6 +90,23 @@
 	const gui     = new Nonogram.Gui( 'dist/themes/default' );
 
 	gui.draw( puzzle );
+
+	const themeToggle = document.getElementById('theme-toggle');
+	const body = document.body;
+
+	if (localStorage.getItem('theme') === 'dark') {
+		body.classList.add('dark-theme');
+	}
+
+	themeToggle.addEventListener('click', () => {
+		body.classList.toggle('dark-theme');
+
+		if (body.classList.contains('dark-theme')) {
+			localStorage.setItem('theme', 'dark');
+		} else {
+			localStorage.setItem('theme', 'light');
+		}
+	});
 
 </script>
 

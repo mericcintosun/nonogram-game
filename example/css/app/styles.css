@@ -2,7 +2,87 @@
     basic reset
 **************************************************/
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -13,7 +93,8 @@ body {
     box-sizing: border-box;
     line-height: 1;
 }
-ol, ul {
+ol,
+ul {
     list-style: none;
 }
 table {
@@ -21,89 +102,164 @@ table {
     border-spacing: 0;
 }
 
+/**************************************************
+    CSS değişkenleri (tema renkleri)
+**************************************************/
+
+:root {
+    --background-color: #f0f2f5;
+    --text-color: #444;
+    --heading-color: #222;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --border-color: #e0e0e0;
+    --button-background: #007bff;
+    --button-hover-background: #0056b3;
+    --button-text-color: #fff;
+    --icon-color: #007bff;
+    --icon-hover-color: #0056b3;
+    --input-background: #fff;
+    --input-text-color: #333;
+    --input-border-color: #ccc;
+    --input-focus-border-color: #007bff;
+}
+
+.dark-theme {
+    --background-color: #1e1e1e;
+    --text-color: #ccc;
+    --heading-color: #fff;
+    --link-color: #58a6ff;
+    --link-hover-color: #1f6feb;
+    --border-color: #3c3c3c;
+    --button-background: #3c82f6;
+    --button-hover-background: #1f6feb;
+    --button-text-color: #fff;
+    --icon-color: #58a6ff;
+    --icon-hover-color: #1f6feb;
+    --input-background: #2d2d2d;
+    --input-text-color: #ccc;
+    --input-border-color: #555;
+    --input-focus-border-color: #3c82f6;
+}
 
 /**************************************************
     small screens and up
 **************************************************/
 
 @media only screen {
-
     /*
          base typography
     */
     body {
-        background: #fff;
-        font-family: 'Quicksand', sans-serif;
-        color: #777;
+        background: var(--background-color);
+        font-family: "Quicksand", sans-serif;
+        color: var(--text-color);
         font-size: 16px;
-        line-height: 19px;
+        line-height: 1.5;
         overflow-y: scroll;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        color: #333;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--heading-color);
         margin: 0 0 16px 0;
-        font-weight: 500;
-        text-transform: lowercase;
+        font-weight: 600;
+        text-transform: capitalize;
     }
 
     h1 {
-        font-size: 32px;
-        line-height: 32px;
+        font-size: 36px;
+        line-height: 42px;
     }
 
     a {
-        color: #0081c6;
+        color: var(--link-color);
+        text-decoration: none;
     }
 
-    a:hover, a:focus {
-        color: #30a1e6;
+    a:hover,
+    a:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
     }
 
     select {
-        font-family: 'Quicksand', sans-serif;
+        font-family: "Quicksand", sans-serif;
         padding: 0.6em 0.5em;
-        border: 1px solid #ddd;
+        border: 1px solid var(--input-border-color);
+        border-radius: 4px;
+        background-color: var(--input-background);
+        color: var(--input-text-color);
+        transition: border-color 0.3s;
     }
 
-    button, .button {
-        font-family: 'Quicksand', sans-serif;
+    select:focus {
+        border-color: var(--input-focus-border-color);
+        outline: none;
+    }
+
+    button,
+    .button {
+        font-family: "Quicksand", sans-serif;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--button-background);
+        color: var(--button-text-color);
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover,
+    .button:hover {
+        background-color: var(--button-hover-background);
     }
 
     /*
         site header
     */
     #site-header {
-        background: #f4f4f4;
-        padding: 10px 20px;
+        background: var(--background-color);
+        padding: 15px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid var(--border-color);
     }
 
     #site-header h1 {
         margin: 0;
+        font-weight: 700;
+    }
+
+    #site-header .icon {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
     }
 
     #site-header .icon svg path {
-        fill: #bababa;
-        transition: fill 0.2s;
+        fill: var(--icon-color);
+        transition: fill 0.3s;
     }
 
     #site-header .icon:hover svg path {
-        fill: #aaa;
+        fill: var(--icon-hover-color);
     }
 
     #site-header .definition {
-        padding: 0 20px;
-        margin-left: auto;
+        margin-left: 15px;
     }
 
     /*
         content
     */
     main {
-        padding: 20px 3.2vw 0;
+        padding: 20px 5vw 0;
     }
 
     .wrapper {
@@ -113,67 +269,45 @@ table {
         grid-gap: 30px;
     }
 
-    .generate-controls {
-        background: #f4f4f4;
+    .generate-controls,
+    .game-controls,
+    .console {
+        background: var(--background-color);
         padding: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
     }
 
     .puzzle {
         overflow: auto;
+        background: var(--background-color);
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
     }
 
     /*
         gui
     */
     .nonogram-console {
-        background: #f4f4f4;
+        background: var(--background-color);
     }
-    [data-nonogram-game-controls] .shortcuts { display: none; }
-
+    [data-nonogram-game-controls] .shortcuts {
+        display: none;
+    }
 }
-
 
 /**************************************************
     medium screens - min-width 641px
 **************************************************/
 
 @media only screen and (min-width: 40.063em) {
-
     /*
         site header
     */
     #site-header h1 {
-        font-size: 32px;
-        line-height: 32px;
-    }
-
-    /*
-        content
-    */
-    main {
-        padding: 20px;
-    }
-
-    /*
-        gui
-    */
-    .nonogram-console {
-        padding: 20px;
-    }
-}
-
-
-/**************************************************
-    large screens - min-width 1025px
-**************************************************/
-
-@media only screen and (min-width: 64.063em) {
-
-    /*
-        site header
-    */
-    #site-header {
-        padding: 10px 20px;
+        font-size: 36px;
+        line-height: 42px;
     }
 
     /*
@@ -181,6 +315,33 @@ table {
     */
     main {
         padding: 30px;
+    }
+
+    /*
+        gui
+    */
+    .nonogram-console {
+        padding: 20px;
+    }
+}
+
+/**************************************************
+    large screens - min-width 1025px
+**************************************************/
+
+@media only screen and (min-width: 64.063em) {
+    /*
+        site header
+    */
+    #site-header {
+        padding: 20px 30px;
+    }
+
+    /*
+        content
+    */
+    main {
+        padding: 40px;
     }
 
     .wrapper {
@@ -209,7 +370,6 @@ table {
         grid-row: 2 / span 3;
     }
 
-
     /*
      gui
     */
@@ -226,5 +386,8 @@ table {
         justify-content: space-between;
     }
 
-    [data-nonogram-game-controls] .shortcuts { display: block; }
+    [data-nonogram-game-controls] .shortcuts {
+        display: block;
+    }
 }
+
